@@ -10,6 +10,9 @@ pub enum InnexgoHoursError {
   Ok,
   NotFound,
 
+  DecodeError,
+  MethodNotAllowed,
+
   NoCapability,
   ApiKeyUnauthorized,
   PasswordIncorrect,
