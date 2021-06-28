@@ -97,7 +97,7 @@ pub enum InnexgoHoursError {
 #[serde(rename_all = "camelCase")]
 pub struct School {
   pub school_id: i64,
-  pub creator_id: i64,
+  pub creator_user_id: i64,
   pub creation_time: i64,
   pub whole: bool,
 }
@@ -106,7 +106,7 @@ pub struct School {
 #[serde(rename_all = "camelCase")]
 pub struct SchoolData {
   pub school_data_id: i64,
-  pub creator_id: i64,
+  pub creator_user_id: i64,
   pub creation_time: i64,
   pub school: School,
   pub name: String,
@@ -119,7 +119,7 @@ pub struct SchoolData {
 pub struct Subscription {
   pub subscription_id: i64,
   pub creation_time: i64,
-  pub creator_id: i64,
+  pub creator_user_id: i64,
   pub subscription_kind: SubscriptionKind,
   pub max_uses: i64,
 }
@@ -129,7 +129,7 @@ pub struct Subscription {
 pub struct AdminshipRequest {
   pub adminship_request_id: i64,
   pub creation_time: i64,
-  pub creator_id: i64,
+  pub creator_user_id: i64,
   pub school: School,
   pub message: String,
 }
@@ -139,7 +139,7 @@ pub struct AdminshipRequest {
 pub struct AdminshipRequestResponse {
   pub adminship_request: AdminshipRequest,
   pub creation_time: i64,
-  pub creator_id: i64,
+  pub creator_user_id: i64,
   pub message: String,
   pub accepted: bool,
 }
@@ -149,7 +149,7 @@ pub struct AdminshipRequestResponse {
 pub struct Adminship {
   pub adminship_id: i64,
   pub creation_time: i64,
-  pub creator_id: i64,
+  pub creator_user_id: i64,
   pub user_id: i64,
   pub school: School,
   pub adminship_kind: AdminshipKind,
@@ -161,7 +161,7 @@ pub struct Adminship {
 pub struct Location {
   pub location_id: i64,
   pub creation_time: i64,
-  pub creator_id: i64,
+  pub creator_user_id: i64,
   pub school: School,
   pub name: String,
   pub description: String,
@@ -172,7 +172,7 @@ pub struct Location {
 #[serde(rename_all = "camelCase")]
 pub struct Course {
   pub course_id: i64,
-  pub creator_id: i64,
+  pub creator_user_id: i64,
   pub creation_time: i64,
   pub school: School,
 }
@@ -182,7 +182,7 @@ pub struct Course {
 pub struct CourseData {
   pub course_data_id: i64,
   pub creation_time: i64,
-  pub creator_id: i64,
+  pub creator_user_id: i64,
   pub course: Course,
   pub name: String,
   pub description: String,
@@ -194,7 +194,7 @@ pub struct CourseData {
 pub struct CourseKey {
   pub course_key_id: i64,
   pub creation_time: i64,
-  pub creator_id: i64,
+  pub creator_user_id: i64,
   pub course: Course,
   pub key: String,
   pub duration: i64,
@@ -207,7 +207,7 @@ pub struct CourseKey {
 pub struct CourseMembership {
   pub course_membership_id: i64,
   pub creation_time: i64,
-  pub creator_id: i64,
+  pub creator_user_id: i64,
   pub user_id: i64,
   pub course: Course,
   pub course_membership_kind: CourseMembershipKind,
@@ -219,7 +219,7 @@ pub struct CourseMembership {
 pub struct Session {
   pub session_id: i64,
   pub creation_time: i64,
-  pub creator_id: i64,
+  pub creator_user_id: i64,
   pub course: Course,
 }
 
@@ -239,7 +239,7 @@ pub struct SessionData {
 pub struct SessionRequest {
   pub session_request_id: i64,
   pub creation_time: i64,
-  pub creator_id: i64,
+  pub creator_user_id: i64,
   pub attendee_id: i64,
   pub course: Course,
   pub message: String,
@@ -252,7 +252,7 @@ pub struct SessionRequest {
 pub struct SessionRequestResponse {
   pub session_request: SessionRequest,
   pub creation_time: i64,
-  pub creator_id: i64,
+  pub creator_user_id: i64,
   pub message: String,
   pub committment: Option<Committment>,
 }
@@ -262,7 +262,7 @@ pub struct SessionRequestResponse {
 pub struct Committment {
   pub committment_id: i64,
   pub creation_time: i64,
-  pub creator_id: i64,
+  pub creator_user_id: i64,
   pub cancellable: bool,
   pub attendee_id: i64,
   pub session: Session,
@@ -272,6 +272,6 @@ pub struct Committment {
 pub struct CommittmentResponse {
   pub committment: Committment,
   pub creation_time: i64,
-  pub creator_id: i64,
+  pub creator_user_id: i64,
   pub kind: CommittmentResponseKind,
 }
