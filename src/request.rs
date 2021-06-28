@@ -253,13 +253,13 @@ pub struct CommittmentResponseNewProps{
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct SubscriptionViewProps{
-  pub subscription_id: Option<i64>,                //
-  pub min_creation_time: Option<i64>,              //
-  pub max_creation_time: Option<i64>,              //
-  pub creator_user_id: Option<i64>,                //
-  pub subscription_kind: Option<SubscriptionKind>, //
-  pub max_uses: Option<i64>,                       //
-  pub only_recent: bool,                           //
+  pub subscription_id: Option<Vec<i64>>,          
+  pub min_creation_time: Option<i64>,             
+  pub max_creation_time: Option<i64>,             
+  pub creator_user_id: Option<i64>,               
+  pub subscription_kind: Option<SubscriptionKind>,
+  pub max_uses: Option<i64>,                      
+  pub only_recent: bool,                          
   pub offset: Option<i64>,
   pub count: Option<i64>,
   pub api_key: String,
@@ -268,7 +268,7 @@ pub struct SubscriptionViewProps{
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct SchoolViewProps{
-  pub school_id: Option<i64>,         //
+  pub school_id: Option<Vec<i64>>,         //
   pub min_creation_time: Option<i64>, //
   pub max_creation_time: Option<i64>, //
   pub creator_user_id: Option<i64>,   //
@@ -281,18 +281,17 @@ pub struct SchoolViewProps{
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct SchoolDataViewProps{
-  pub school_data_id: Option<i64>,         //
-  pub min_creation_time: Option<i64>,      //
-  pub max_creation_time: Option<i64>,      //
-  pub creator_user_id: Option<i64>,        //
-  pub school_id: Option<i64>,              //
-  pub name: Option<String>,                //
-  pub partial_name: Option<String>,        //
-  pub description: Option<String>,         //
-  pub partial_description: Option<String>, //
-  pub active: Option<bool>,                //
-  pub only_recent: bool,                   //
-  pub recent_admin_user_id: Option<i64>,   //
+  pub school_data_id: Option<Vec<i64>>,    
+  pub min_creation_time: Option<i64>,      
+  pub max_creation_time: Option<i64>,      
+  pub creator_user_id: Option<i64>,        
+  pub school_id: Option<i64>,              
+  pub name: Option<String>,                
+  pub partial_school_name: Option<String>,
+  pub description: Option<String>,         
+  pub partial_description: Option<String>, 
+  pub active: Option<bool>,                
+  pub only_recent: bool,                   
   pub offset: Option<i64>,
   pub count: Option<i64>,
   pub api_key: String,
@@ -301,7 +300,7 @@ pub struct SchoolDataViewProps{
 #[serde(rename_all = "camelCase")]
 
 pub struct CourseViewProps{
-  pub course_id: Option<i64>,         //
+  pub course_id: Option<Vec<i64>>,         //
   pub min_creation_time: Option<i64>, //
   pub max_creation_time: Option<i64>, //
   pub creator_user_id: Option<i64>,   //
@@ -314,7 +313,7 @@ pub struct CourseViewProps{
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct CourseDataViewProps{
-  pub course_data_id: Option<i64>,            //
+  pub course_data_id: Option<Vec<i64>>,            //
   pub min_creation_time: Option<i64>,         //
   pub max_creation_time: Option<i64>,         //
   pub creator_user_id: Option<i64>,           //
@@ -326,9 +325,6 @@ pub struct CourseDataViewProps{
   pub active: Option<bool>,                   //
   pub only_recent: bool,                      //
   pub school_id: Option<i64>,                 //
-  pub recent_member_user_id: Option<i64>,     //
-  pub recent_student_user_id: Option<i64>,    //
-  pub recent_instructor_user_id: Option<i64>, //
   pub offset: Option<i64>,
   pub count: Option<i64>,
   pub api_key: String,
@@ -337,7 +333,7 @@ pub struct CourseDataViewProps{
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct CourseKeyViewProps{
-  pub course_key_id: Option<i64>,
+  pub course_key_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
   pub creator_user_id: Option<i64>,
@@ -356,7 +352,7 @@ pub struct CourseKeyViewProps{
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct CourseMembershipViewProps{
-  pub course_membership_id: Option<i64>,
+  pub course_membership_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
   pub creator_user_id: Option<i64>,
@@ -376,7 +372,7 @@ pub struct CourseMembershipViewProps{
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct AdminshipRequestViewProps{
-  pub adminship_request_id: Option<i64>,
+  pub adminship_request_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
   pub creator_user_id: Option<i64>,
@@ -391,7 +387,7 @@ pub struct AdminshipRequestViewProps{
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct AdminshipRequestResponseViewProps{
-  pub adminship_request_id: Option<i64>,
+  pub adminship_request_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
   pub creator_user_id: Option<i64>,
@@ -408,7 +404,7 @@ pub struct AdminshipRequestResponseViewProps{
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct AdminshipViewProps{
-  pub adminship_id: Option<i64>,
+  pub adminship_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
   pub creator_user_id: Option<i64>,
@@ -428,7 +424,7 @@ pub struct AdminshipViewProps{
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct SessionViewProps{
-  pub session_id: Option<i64>,
+  pub session_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
   pub creator_user_id: Option<i64>,
@@ -441,7 +437,7 @@ pub struct SessionViewProps{
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct SessionDataViewProps{
-  pub session_data_id: Option<i64>,
+  pub session_data_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
   pub creator_user_id: Option<i64>,
@@ -464,7 +460,7 @@ pub struct SessionDataViewProps{
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct SessionRequestViewProps{
-  pub session_request_id: Option<i64>,
+  pub session_request_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
   pub creator_user_id: Option<i64>,
@@ -484,7 +480,7 @@ pub struct SessionRequestViewProps{
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct SessionRequestResponseViewProps{
-  pub session_request_id: Option<i64>,
+  pub session_request_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
   pub creator_user_id: Option<i64>,
@@ -507,7 +503,7 @@ pub struct SessionRequestResponseViewProps{
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct CommittmentViewProps{
-  pub committment_id: Option<i64>,
+  pub committment_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
   pub creator_user_id: Option<i64>,
@@ -529,7 +525,7 @@ pub struct CommittmentViewProps{
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct CommittmentResponseViewProps{
-  pub committment_id: Option<i64>,
+  pub committment_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
   pub creator_user_id: Option<i64>,
