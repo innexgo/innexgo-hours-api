@@ -85,6 +85,11 @@ pub enum InnexgoHoursError {
   EmailRatelimit,
   EmailBlacklisted,
   Unknown,
+  InternalServerError,
+  AuthInternalServerError,
+  AuthBadRequest,
+  AuthNetworkError,
+  AuthOther,
   Network,
 }
 

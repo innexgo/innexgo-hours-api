@@ -90,7 +90,7 @@ pub struct SubscriptionNewProps {
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct CourseNewProps{
+pub struct CourseNewProps {
   pub school_id: i64,
   pub name: String,
   pub description: String,
@@ -99,7 +99,7 @@ pub struct CourseNewProps{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct CourseDataNewProps{
+pub struct CourseDataNewProps {
   pub course_id: i64,
   pub name: String,
   pub description: String,
@@ -109,7 +109,7 @@ pub struct CourseDataNewProps{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct CourseKeyNewValidProps{
+pub struct CourseKeyNewValidProps {
   pub course_id: i64,
   pub course_membership_kind: CourseMembershipKind,
   pub max_uses: i64,
@@ -118,14 +118,14 @@ pub struct CourseKeyNewValidProps{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct CourseKeyNewCancelProps{
+pub struct CourseKeyNewCancelProps {
   pub course_key: String,
   pub api_key: String,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct CourseMembershipNewCancelProps{
+pub struct CourseMembershipNewCancelProps {
   pub user_id: i64,
   pub course_id: i64,
   pub api_key: String,
@@ -133,14 +133,14 @@ pub struct CourseMembershipNewCancelProps{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct CourseMembershipNewKeyProps{
+pub struct CourseMembershipNewKeyProps {
   pub course_key: String,
   pub api_key: String,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct SchoolNewProps{
+pub struct SchoolNewProps {
   pub name: String,
   pub description: String,
   pub whole: bool,
@@ -149,7 +149,7 @@ pub struct SchoolNewProps{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct SchoolDataNewProps{
+pub struct SchoolDataNewProps {
   pub school_id: i64,
   pub name: String,
   pub description: String,
@@ -159,7 +159,7 @@ pub struct SchoolDataNewProps{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct AdminshipRequestNewProps{
+pub struct AdminshipRequestNewProps {
   pub school_id: i64,
   pub message: String,
   pub api_key: String,
@@ -167,7 +167,7 @@ pub struct AdminshipRequestNewProps{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct AdminshipRequestResponseNewProps{
+pub struct AdminshipRequestResponseNewProps {
   pub adminship_request_id: i64,
   pub message: String,
   pub accept: bool,
@@ -176,7 +176,7 @@ pub struct AdminshipRequestResponseNewProps{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct AdminshipNewCancelProps{
+pub struct AdminshipNewCancelProps {
   pub user_id: i64,
   pub school_id: i64,
   pub api_key: String,
@@ -184,14 +184,14 @@ pub struct AdminshipNewCancelProps{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct AdminshipNewValidProps{
+pub struct AdminshipNewValidProps {
   pub adminship_request_response_id: i64,
   pub api_key: String,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct SessionNewProps{
+pub struct SessionNewProps {
   pub name: String,
   pub course_id: i64,
   pub hidden: bool,
@@ -200,7 +200,7 @@ pub struct SessionNewProps{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct SessionDataNewProps{
+pub struct SessionDataNewProps {
   pub session_id: i64,
   pub name: String,
   pub hidden: bool,
@@ -210,7 +210,7 @@ pub struct SessionDataNewProps{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct SessionRequestNewProps{
+pub struct SessionRequestNewProps {
   pub course_id: i64,
   pub message: String,
   pub api_key: String,
@@ -218,24 +218,16 @@ pub struct SessionRequestNewProps{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct SessionRequestResponseNewRejectProps{
+pub struct SessionRequestResponseNewProps {
   pub session_request_id: i64,
   pub message: String,
+  pub committment_id: Option<i64>,
   pub api_key: String,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct SessionRequestResponseNewAcceptProps{
-  pub session_request_id: i64,
-  pub message: String,
-  pub committment_id: i64,
-  pub api_key: String,
-}
-
-#[derive(Clone, Debug, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct CommittmentNewProps{
+pub struct CommittmentNewProps {
   pub attendee_user_id: i64,
   pub session_id: i64,
   pub cancellable: bool,
@@ -244,7 +236,7 @@ pub struct CommittmentNewProps{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct CommittmentResponseNewProps{
+pub struct CommittmentResponseNewProps {
   pub committment_id: i64,
   pub committment_response_kind: CommittmentResponseKind,
   pub api_key: String,
@@ -252,96 +244,12 @@ pub struct CommittmentResponseNewProps{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct SubscriptionViewProps{
-  pub subscription_id: Option<Vec<i64>>,          
-  pub min_creation_time: Option<i64>,             
-  pub max_creation_time: Option<i64>,             
-  pub creator_user_id: Option<i64>,               
-  pub subscription_kind: Option<SubscriptionKind>,
-  pub only_recent: bool,                          
-  pub offset: Option<i64>,
-  pub count: Option<i64>,
-  pub api_key: String,
-}
-
-#[derive(Clone, Debug, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct SchoolViewProps{
-  pub school_id: Option<Vec<i64>>,         //
-  pub min_creation_time: Option<i64>, //
-  pub max_creation_time: Option<i64>, //
-  pub creator_user_id: Option<i64>,   //
-  pub whole: Option<bool>,            //
-  pub offset: Option<i64>,
-  pub count: Option<i64>,
-  pub api_key: String,
-}
-
-#[derive(Clone, Debug, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct SchoolDataViewProps{
-  pub school_data_id: Option<Vec<i64>>,    
-  pub min_creation_time: Option<i64>,      
-  pub max_creation_time: Option<i64>,      
-  pub creator_user_id: Option<i64>,        
-  pub school_id: Option<i64>,              
-  pub name: Option<String>,                
-  pub partial_name: Option<String>,
-  pub description: Option<String>,         
-  pub partial_description: Option<String>, 
-  pub active: Option<bool>,                
-  pub only_recent: bool,                   
-  pub offset: Option<i64>,
-  pub count: Option<i64>,
-  pub api_key: String,
-}
-#[derive(Clone, Debug, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-
-pub struct CourseViewProps{
-  pub course_id: Option<Vec<i64>>,         //
-  pub min_creation_time: Option<i64>, //
-  pub max_creation_time: Option<i64>, //
-  pub creator_user_id: Option<i64>,   //
-  pub school_id: Option<i64>,         //
-  pub offset: Option<i64>,
-  pub count: Option<i64>,
-  pub api_key: String,
-}
-
-#[derive(Clone, Debug, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct CourseDataViewProps{
-  pub course_data_id: Option<Vec<i64>>,            //
-  pub min_creation_time: Option<i64>,         //
-  pub max_creation_time: Option<i64>,         //
-  pub creator_user_id: Option<i64>,           //
-  pub course_id: Option<i64>,                 //
-  pub name: Option<String>,                   //
-  pub partial_name: Option<String>,           //
-  pub description: Option<String>,            //
-  pub partial_description: Option<String>,    //
-  pub active: Option<bool>,                   //
-  pub only_recent: bool,                      //
-  pub school_id: Option<i64>,                 //
-  pub offset: Option<i64>,
-  pub count: Option<i64>,
-  pub api_key: String,
-}
-
-#[derive(Clone, Debug, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct CourseKeyViewProps{
-  pub course_key_id: Option<Vec<i64>>,
+pub struct SubscriptionViewProps {
+  pub subscription_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
   pub creator_user_id: Option<i64>,
-  pub course_id: Option<i64>,
-  pub course_key_valid: Option<bool>,
-  pub course_membership_kind: Option<CourseMembershipKind>,
-  pub min_duration: Option<i64>,
-  pub max_duration: Option<i64>,
-  pub max_uses: Option<i64>,
+  pub subscription_kind: Option<SubscriptionKind>,
   pub only_recent: bool,
   pub offset: Option<i64>,
   pub count: Option<i64>,
@@ -350,7 +258,92 @@ pub struct CourseKeyViewProps{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct CourseMembershipViewProps{
+pub struct SchoolViewProps {
+  pub school_id: Option<Vec<i64>>,
+  pub min_creation_time: Option<i64>,
+  pub max_creation_time: Option<i64>,
+  pub creator_user_id: Option<i64>,
+  pub whole: Option<bool>,
+  pub offset: Option<i64>,
+  pub count: Option<i64>,
+  pub api_key: String,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SchoolDataViewProps {
+  pub school_data_id: Option<Vec<i64>>,
+  pub min_creation_time: Option<i64>,
+  pub max_creation_time: Option<i64>,
+  pub creator_user_id: Option<i64>,
+  pub school_id: Option<i64>,
+  pub name: Option<String>,
+  pub partial_name: Option<String>,
+  pub description: Option<String>,
+  pub partial_description: Option<String>,
+  pub active: Option<bool>,
+  pub only_recent: bool,
+  pub offset: Option<i64>,
+  pub count: Option<i64>,
+  pub api_key: String,
+}
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+
+pub struct CourseViewProps {
+  pub course_id: Option<Vec<i64>>,
+  pub min_creation_time: Option<i64>,
+  pub max_creation_time: Option<i64>,
+  pub creator_user_id: Option<i64>,
+  pub school_id: Option<i64>,
+  pub offset: Option<i64>,
+  pub count: Option<i64>,
+  pub api_key: String,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct CourseDataViewProps {
+  pub course_data_id: Option<Vec<i64>>,
+  pub min_creation_time: Option<i64>,
+  pub max_creation_time: Option<i64>,
+  pub creator_user_id: Option<i64>,
+  pub course_id: Option<i64>,
+  pub name: Option<String>,
+  pub partial_name: Option<String>,
+  pub description: Option<String>,
+  pub partial_description: Option<String>,
+  pub active: Option<bool>,
+  pub only_recent: bool,
+  pub school_id: Option<i64>,
+  pub offset: Option<i64>,
+  pub count: Option<i64>,
+  pub api_key: String,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct CourseKeyViewProps {
+  pub course_key_id: Option<Vec<i64>>,
+  pub min_creation_time: Option<i64>,
+  pub max_creation_time: Option<i64>,
+  pub creator_user_id: Option<i64>,
+  pub course_id: Option<i64>,
+  pub key: Option<String>,
+  pub min_duration: Option<i64>,
+  pub max_duration: Option<i64>,
+  pub max_uses: Option<i64>,
+  pub course_membership_kind: Option<CourseMembershipKind>,
+  pub course_key_valid: Option<bool>,
+  pub only_recent: bool,
+  pub offset: Option<i64>,
+  pub count: Option<i64>,
+  pub api_key: String,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct CourseMembershipViewProps {
   pub course_membership_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
@@ -358,10 +351,8 @@ pub struct CourseMembershipViewProps{
   pub user_id: Option<i64>,
   pub course_id: Option<i64>,
   pub course_membership_kind: Option<CourseMembershipKind>,
-  pub course_membership_has_source: Option<bool>,
+  pub course_membership_from_key: Option<bool>,
   pub course_key_id: Option<i64>,
-  pub user_name: Option<String>,
-  pub partial_user_name: Option<String>,
   pub only_recent: bool,
   pub offset: Option<i64>,
   pub count: Option<i64>,
@@ -370,7 +361,7 @@ pub struct CourseMembershipViewProps{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct AdminshipRequestViewProps{
+pub struct AdminshipRequestViewProps {
   pub adminship_request_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
@@ -386,7 +377,7 @@ pub struct AdminshipRequestViewProps{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct AdminshipRequestResponseViewProps{
+pub struct AdminshipRequestResponseViewProps {
   pub adminship_request_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
@@ -404,7 +395,7 @@ pub struct AdminshipRequestResponseViewProps{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct AdminshipViewProps{
+pub struct AdminshipViewProps {
   pub adminship_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
@@ -422,7 +413,7 @@ pub struct AdminshipViewProps{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct SessionViewProps{
+pub struct SessionViewProps {
   pub session_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
@@ -435,7 +426,7 @@ pub struct SessionViewProps{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct SessionDataViewProps{
+pub struct SessionDataViewProps {
   pub session_data_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
@@ -447,7 +438,6 @@ pub struct SessionDataViewProps{
   pub max_start_time: Option<i64>,
   pub min_end_time: Option<i64>,
   pub max_end_time: Option<i64>,
-  pub hidden: Option<bool>,
   pub active: Option<bool>,
   pub only_recent: bool,
   pub course_id: Option<i64>,
@@ -458,7 +448,7 @@ pub struct SessionDataViewProps{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct SessionRequestViewProps{
+pub struct SessionRequestViewProps {
   pub session_request_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
@@ -479,12 +469,13 @@ pub struct SessionRequestViewProps{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct SessionRequestResponseViewProps{
+pub struct SessionRequestResponseViewProps {
   pub session_request_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
   pub creator_user_id: Option<i64>,
   pub message: Option<String>,
+  pub partial_message: Option<String>,
   pub accepted: Option<bool>,
   pub committment_id: Option<i64>,
   pub attendee_user_id: Option<i64>,
@@ -493,7 +484,6 @@ pub struct SessionRequestResponseViewProps{
   pub max_start_time: Option<i64>,
   pub min_end_time: Option<i64>,
   pub max_end_time: Option<i64>,
-  pub responded: Option<bool>,
   pub session_id: Option<i64>,
   pub offset: Option<i64>,
   pub count: Option<i64>,
@@ -502,7 +492,7 @@ pub struct SessionRequestResponseViewProps{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct CommittmentViewProps{
+pub struct CommittmentViewProps {
   pub committment_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
@@ -524,7 +514,7 @@ pub struct CommittmentViewProps{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct CommittmentResponseViewProps{
+pub struct CommittmentResponseViewProps {
   pub committment_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
