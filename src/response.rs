@@ -226,11 +226,13 @@ pub struct Session {
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct SessionData {
+  pub session_data_id: i64,
+  pub creation_time: i64,
+  pub creator_user_id: i64,
   pub session: Session,
   pub name: String,
   pub start_time: i64,
-  pub duration: i64,
-  pub hidden: bool,
+  pub end_time: i64,
   pub active: bool,
 }
 
@@ -240,7 +242,7 @@ pub struct SessionRequest {
   pub session_request_id: i64,
   pub creation_time: i64,
   pub creator_user_id: i64,
-  pub attendee_id: i64,
+  pub attendee_user_id: i64,
   pub course: Course,
   pub message: String,
   pub start_time: i64,
@@ -263,8 +265,8 @@ pub struct Committment {
   pub committment_id: i64,
   pub creation_time: i64,
   pub creator_user_id: i64,
+  pub attendee_user_id: i64,
   pub cancellable: bool,
-  pub attendee_id: i64,
   pub session: Session,
 }
 #[derive(Clone, Debug, Serialize, Deserialize)]
