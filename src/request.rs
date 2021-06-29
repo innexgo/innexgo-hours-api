@@ -120,7 +120,7 @@ pub struct CourseKeyNewProps {
 
 pub struct CourseKeyDataNewProps {
     pub course_key_key: String,
-    pub active: bool
+    pub active: bool,
     pub api_key: String
 }
 
@@ -168,18 +168,19 @@ pub struct Adminship{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct CourseKeyNewProps {
-  pub course_id: i64,
-  pub course_membership_kind: CourseMembershipKind,
+pub struct SchoolKeyNewProps {
+  pub school_id: i64,
   pub max_uses: i64,
   pub start_time: i64,
   pub end_time: i64,
   pub api_key: String,
 }
 
-pub struct CourseKeyDataNewProps {
-    pub course_key_key: String,
-    pub active: bool
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SchoolKeyDataNewProps {
+    pub school_key_key: String,
+    pub active: bool,
     pub api_key: String
 }
 
