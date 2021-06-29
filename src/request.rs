@@ -287,9 +287,9 @@ pub struct SchoolDataViewProps {
   pub count: Option<i64>,
   pub api_key: String,
 }
+
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-
 pub struct CourseViewProps {
   pub course_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
@@ -324,18 +324,41 @@ pub struct CourseDataViewProps {
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct CourseKeyViewProps {
-  pub course_key_id: Option<Vec<i64>>,
+  pub course_key_key: Option<Vec<String>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
   pub creator_user_id: Option<i64>,
   pub course_id: Option<i64>,
-  pub key: Option<String>,
-  pub min_duration: Option<i64>,
-  pub max_duration: Option<i64>,
   pub max_uses: Option<i64>,
   pub course_membership_kind: Option<CourseMembershipKind>,
   pub course_key_valid: Option<bool>,
-  pub only_recent: bool,
+  pub min_start_time: Option<i64>,
+  pub max_start_time: Option<i64>,
+  pub min_end_time: Option<i64>,
+  pub max_end_time: Option<i64>,
+  pub offset: Option<i64>,
+  pub count: Option<i64>,
+  pub api_key: String,
+}
+
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct CourseKeyDataViewProps {
+  pub course_key_data_id: Option<Vec<i64>>,
+  pub min_creation_time: Option<i64>,
+  pub max_creation_time: Option<i64>,
+  pub creator_user_id: Option<i64>,
+  pub course_key_key: Option<String>,
+  pub active: Option<bool>,
+  pub course_id: Option<i64>,
+  pub max_uses: Option<i64>,
+  pub course_membership_kind: Option<CourseMembershipKind>,
+  pub course_key_valid: Option<bool>,
+  pub min_start_time: Option<i64>,
+  pub max_start_time: Option<i64>,
+  pub min_end_time: Option<i64>,
+  pub max_end_time: Option<i64>,
   pub offset: Option<i64>,
   pub count: Option<i64>,
   pub api_key: String,
@@ -361,15 +384,18 @@ pub struct CourseMembershipViewProps {
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct AdminshipRequestViewProps {
-  pub adminship_request_id: Option<Vec<i64>>,
+pub struct SchoolKeyViewProps {
+  pub school_key_key: Option<Vec<String>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
   pub creator_user_id: Option<i64>,
   pub school_id: Option<i64>,
-  pub message: Option<String>,
-  pub partial_message: Option<String>,
-  pub responded: Option<bool>,
+  pub max_uses: Option<i64>,
+  pub school_key_valid: Option<bool>,
+  pub min_start_time: Option<i64>,
+  pub max_start_time: Option<i64>,
+  pub min_end_time: Option<i64>,
+  pub max_end_time: Option<i64>,
   pub offset: Option<i64>,
   pub count: Option<i64>,
   pub api_key: String,
@@ -377,17 +403,20 @@ pub struct AdminshipRequestViewProps {
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct AdminshipRequestResponseViewProps {
-  pub adminship_request_id: Option<Vec<i64>>,
+pub struct SchoolKeyDataViewProps {
+  pub school_key_data_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
   pub creator_user_id: Option<i64>,
-  pub message: Option<String>,
-  pub partial_message: Option<String>,
-  pub accepted: Option<bool>,
-  pub responded: Option<bool>,
-  pub requester_user_id: Option<i64>,
+  pub school_key_key: Option<String>,
+  pub active: Option<bool>,
   pub school_id: Option<i64>,
+  pub max_uses: Option<i64>,
+  pub school_key_valid: Option<bool>,
+  pub min_start_time: Option<i64>,
+  pub max_start_time: Option<i64>,
+  pub min_end_time: Option<i64>,
+  pub max_end_time: Option<i64>,
   pub offset: Option<i64>,
   pub count: Option<i64>,
   pub api_key: String,
@@ -404,7 +433,7 @@ pub struct AdminshipViewProps {
   pub school_id: Option<i64>,
   pub adminship_kind: Option<AdminshipKind>,
   pub adminship_has_source: Option<bool>,
-  pub adminship_request_id: Option<i64>,
+  pub school_key_key: Option<String>,
   pub only_recent: bool,
   pub offset: Option<i64>,
   pub count: Option<i64>,

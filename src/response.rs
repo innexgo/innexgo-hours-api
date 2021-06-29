@@ -38,8 +38,9 @@ pub enum InnexgoHoursError {
   AdminshipRequestResponseExistent,
   AdminshipRequestResponseNonexistent,
 
-  AdminshipRequestResponseCannotUseOthers,
-  AdminshipRequestResponseInvalid,
+  SchoolKeyNonexistent,
+  SchoolKeyExpired,
+  SchoolKeyUsed,
 
   AdminshipCannotLeaveEmpty,
 
@@ -126,22 +127,24 @@ pub struct Subscription {
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct AdminshipRequest {
-  pub adminship_request_id: i64,
+pub struct SchoolKey {
+  pub school_key_key: String,
   pub creation_time: i64,
   pub creator_user_id: i64,
   pub school: School,
-  pub message: String,
+  pub max_uses: i64,
+  pub start_time: i64,
+  pub end_time: i64,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct AdminshipRequestResponse {
-  pub adminship_request: AdminshipRequest,
+pub struct SchoolKeyData  {
+  pub school_key_data_id: i64,
   pub creation_time: i64,
   pub creator_user_id: i64,
-  pub message: String,
-  pub accepted: bool,
+  pub school_key: SchoolKey,
+  pub active: bool,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -153,7 +156,7 @@ pub struct Adminship {
   pub user_id: i64,
   pub school: School,
   pub adminship_kind: AdminshipKind,
-  pub adminship_request_response: Option<AdminshipRequestResponse>,
+  pub school_key: Option<SchoolKey>,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -192,14 +195,24 @@ pub struct CourseData {
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct CourseKey {
-  pub course_key_id: i64,
+  pub course_key_key: String,
   pub creation_time: i64,
   pub creator_user_id: i64,
   pub course: Course,
-  pub key: String,
-  pub duration: i64,
   pub max_uses: i64,
-  pub course_membership_kind: Option<CourseMembershipKind>,
+  pub course_membership_kind: CourseMembershipKind,
+  pub start_time: i64,
+  pub end_time: i64,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct CourseKeyData  {
+  pub course_key_data_id: i64,
+  pub creation_time: i64,
+  pub creator_user_id: i64,
+  pub course_key: CourseKey,
+  pub active: bool,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
