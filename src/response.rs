@@ -34,10 +34,6 @@ pub enum InnexgoHoursError {
   SchoolNonexistent,
   SchoolArchived,
 
-  AdminshipRequestNonexistent,
-  AdminshipRequestResponseExistent,
-  AdminshipRequestResponseNonexistent,
-
   SchoolKeyNonexistent,
   SchoolKeyExpired,
   SchoolKeyUsed,

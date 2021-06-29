@@ -109,18 +109,19 @@ pub struct CourseDataNewProps {
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct CourseKeyNewValidProps {
+pub struct CourseKeyNewProps {
   pub course_id: i64,
   pub course_membership_kind: CourseMembershipKind,
   pub max_uses: i64,
+  pub start_time: i64,
+  pub end_time: i64,
   pub api_key: String,
 }
 
-#[derive(Clone, Debug, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct CourseKeyNewCancelProps {
-  pub course_key: String,
-  pub api_key: String,
+pub struct CourseKeyDataNewProps {
+    pub course_key_key: String,
+    pub active: bool
+    pub api_key: String
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -159,7 +160,7 @@ pub struct SchoolDataNewProps {
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct AdminshipRequestNewProps {
+pub struct Adminship{
   pub school_id: i64,
   pub message: String,
   pub api_key: String,
@@ -167,11 +168,19 @@ pub struct AdminshipRequestNewProps {
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct AdminshipRequestResponseNewProps {
-  pub adminship_request_id: i64,
-  pub message: String,
-  pub accept: bool,
+pub struct CourseKeyNewProps {
+  pub course_id: i64,
+  pub course_membership_kind: CourseMembershipKind,
+  pub max_uses: i64,
+  pub start_time: i64,
+  pub end_time: i64,
   pub api_key: String,
+}
+
+pub struct CourseKeyDataNewProps {
+    pub course_key_key: String,
+    pub active: bool
+    pub api_key: String
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
