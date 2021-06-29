@@ -255,7 +255,7 @@ pub struct SessionRequest {
   pub course: Course,
   pub message: String,
   pub start_time: i64,
-  pub duration: i64,
+  pub end_time: i64,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]

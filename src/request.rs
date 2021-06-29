@@ -386,7 +386,7 @@ pub struct CourseMembershipViewProps {
   pub course_id: Option<i64>,
   pub course_membership_kind: Option<CourseMembershipKind>,
   pub course_membership_from_key: Option<bool>,
-  pub course_key_id: Option<i64>,
+  pub course_key_key: Option<String>,
   pub only_recent: bool,
   pub offset: Option<i64>,
   pub count: Option<i64>,
