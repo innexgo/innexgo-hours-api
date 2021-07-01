@@ -273,7 +273,6 @@ pub struct Committment {
   pub creation_time: i64,
   pub creator_user_id: i64,
   pub attendee_user_id: i64,
-  pub cancellable: bool,
   pub session: Session,
 }
 #[derive(Clone, Debug, Serialize, Deserialize)]

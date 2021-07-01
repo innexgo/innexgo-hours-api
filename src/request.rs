@@ -197,7 +197,7 @@ pub struct AdminshipNewCancelProps {
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct AdminshipNewKeyProps {
-  pub school_key_key: i64,
+  pub school_key_key: String,
   pub api_key: String,
 }
 
