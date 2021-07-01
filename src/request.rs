@@ -118,6 +118,8 @@ pub struct CourseKeyNewProps {
   pub api_key: String,
 }
 
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct CourseKeyDataNewProps {
     pub course_key_key: String,
     pub active: bool,
