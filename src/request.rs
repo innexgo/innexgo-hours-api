@@ -121,9 +121,9 @@ pub struct CourseKeyNewProps {
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct CourseKeyDataNewProps {
-    pub course_key_key: String,
-    pub active: bool,
-    pub api_key: String
+  pub course_key_key: String,
+  pub active: bool,
+  pub api_key: String,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -137,7 +137,7 @@ pub struct CourseMembershipNewCancelProps {
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct CourseMembershipNewKeyProps {
-  pub course_key: String,
+  pub course_key_key: String,
   pub api_key: String,
 }
 
@@ -162,7 +162,7 @@ pub struct SchoolDataNewProps {
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct Adminship{
+pub struct Adminship {
   pub school_id: i64,
   pub message: String,
   pub api_key: String,
@@ -181,9 +181,9 @@ pub struct SchoolKeyNewProps {
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct SchoolKeyDataNewProps {
-    pub school_key_key: String,
-    pub active: bool,
-    pub api_key: String
+  pub school_key_key: String,
+  pub active: bool,
+  pub api_key: String,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -196,8 +196,8 @@ pub struct AdminshipNewCancelProps {
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct AdminshipNewValidProps {
-  pub adminship_request_response_id: i64,
+pub struct AdminshipNewKeyProps {
+  pub school_key_key: i64,
   pub api_key: String,
 }
 
@@ -206,7 +206,8 @@ pub struct AdminshipNewValidProps {
 pub struct SessionNewProps {
   pub name: String,
   pub course_id: i64,
-  pub hidden: bool,
+  pub start_time: i64,
+  pub end_time: i64,
   pub api_key: String,
 }
 
@@ -215,8 +216,9 @@ pub struct SessionNewProps {
 pub struct SessionDataNewProps {
   pub session_id: i64,
   pub name: String,
-  pub hidden: bool,
   pub active: bool,
+  pub start_time: i64,
+  pub end_time: i64,
   pub api_key: String,
 }
 
@@ -225,6 +227,8 @@ pub struct SessionDataNewProps {
 pub struct SessionRequestNewProps {
   pub course_id: i64,
   pub message: String,
+  pub start_time: i64,
+  pub end_time: i64,
   pub api_key: String,
 }
 
@@ -233,7 +237,7 @@ pub struct SessionRequestNewProps {
 pub struct SessionRequestResponseNewProps {
   pub session_request_id: i64,
   pub message: String,
-  pub committment_id: Option<i64>,
+  pub session_id: Option<i64>,
   pub api_key: String,
 }
 
@@ -242,7 +246,6 @@ pub struct SessionRequestResponseNewProps {
 pub struct CommittmentNewProps {
   pub attendee_user_id: i64,
   pub session_id: i64,
-  pub cancellable: bool,
   pub api_key: String,
 }
 
@@ -352,7 +355,6 @@ pub struct CourseKeyViewProps {
   pub count: Option<i64>,
   pub api_key: String,
 }
-
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -496,7 +498,6 @@ pub struct SessionRequestViewProps {
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
   pub creator_user_id: Option<i64>,
-  pub attendee_user_id: Option<i64>,
   pub course_id: Option<i64>,
   pub message: Option<String>,
   pub partial_message: Option<String>,
@@ -542,7 +543,6 @@ pub struct CommittmentViewProps {
   pub creator_user_id: Option<i64>,
   pub attendee_user_id: Option<i64>,
   pub session_id: Option<i64>,
-  pub cancellable: Option<bool>,
   pub course_id: Option<i64>,
   pub min_start_time: Option<i64>,
   pub max_start_time: Option<i64>,

@@ -44,8 +44,7 @@ pub enum InnexgoHoursError {
   SessionRequestResponseExistent,
   SessionRequestResponseCannotCancelStudent,
 
-  SessionCannotCreateForOthersStudent,
-
+  SessionNotRelevant,
   SessionNonexistent,
 
   CommittmentExistent,
@@ -251,7 +250,6 @@ pub struct SessionRequest {
   pub session_request_id: i64,
   pub creation_time: i64,
   pub creator_user_id: i64,
-  pub attendee_user_id: i64,
   pub course: Course,
   pub message: String,
   pub start_time: i64,
