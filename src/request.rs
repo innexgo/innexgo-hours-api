@@ -314,7 +314,7 @@ pub struct CourseDataViewProps {
   pub partial_description: Option<String>,
   pub active: Option<bool>,
   pub only_recent: bool,
-  pub school_id: Option<i64>,
+  pub school_id: Option<Vec<i64>>,
   pub api_key: String,
 }
 
