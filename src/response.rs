@@ -127,7 +127,6 @@ pub struct SchoolKey {
   pub creation_time: i64,
   pub creator_user_id: i64,
   pub school: School,
-  pub max_uses: i64,
   pub start_time: i64,
   pub end_time: i64,
 }
