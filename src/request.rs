@@ -164,7 +164,6 @@ pub struct SchoolDataNewProps {
 #[serde(rename_all = "camelCase")]
 pub struct SchoolKeyNewProps {
   pub school_id: i64,
-  pub max_uses: i64,
   pub start_time: i64,
   pub end_time: i64,
   pub api_key: String,
@@ -379,7 +378,6 @@ pub struct SchoolKeyViewProps {
   pub max_creation_time: Option<i64>,
   pub creator_user_id: Option<Vec<i64>>,
   pub school_id: Option<Vec<i64>>,
-  pub max_uses: Option<Vec<i64>>,
   pub min_start_time: Option<i64>,
   pub max_start_time: Option<i64>,
   pub min_end_time: Option<i64>,
@@ -397,7 +395,6 @@ pub struct SchoolKeyDataViewProps {
   pub school_key_key: Option<Vec<String>>,
   pub active: Option<bool>,
   pub school_id: Option<Vec<i64>>,
-  pub max_uses: Option<Vec<i64>>,
   pub min_start_time: Option<i64>,
   pub max_start_time: Option<i64>,
   pub min_end_time: Option<i64>,
