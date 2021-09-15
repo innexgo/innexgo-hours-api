@@ -38,6 +38,11 @@ pub enum InnexgoHoursError {
   SchoolKeyExpired,
   SchoolKeyUsed,
 
+  SchoolDurationNonexistent,
+  SchoolDurationDayInvalid,
+  SchoolDurationMinuteInvalid,
+  SchoolDurationDataNonexistent,
+
   AdminshipCannotLeaveEmpty,
 
   SessionRequestNonexistent,
@@ -122,6 +127,28 @@ pub struct Subscription {
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
+pub struct SchoolDuration {
+  pub school_duration_id: String,
+  pub creation_time: i64,
+  pub creator_user_id: i64,
+  pub school: School,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SchoolDurationData {
+  pub school_duration_data_id: String,
+  pub creation_time: i64,
+  pub creator_user_id: i64,
+  pub school_duration: SchoolDuration,
+  pub day: i64,
+  pub minute_start: i64,
+  pub minute_end: i64,
+  pub active: bool,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct SchoolKey {
   pub school_key_key: String,
   pub creation_time: i64,
@@ -183,6 +210,7 @@ pub struct CourseData {
   pub course: Course,
   pub name: String,
   pub description: String,
+  pub homeroom: bool,
   pub active: bool,
 }
 

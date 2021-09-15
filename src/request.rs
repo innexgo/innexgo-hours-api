@@ -94,6 +94,7 @@ pub struct CourseNewProps {
   pub school_id: i64,
   pub name: String,
   pub description: String,
+  pub homeroom: bool,
   pub api_key: String,
 }
 
@@ -103,6 +104,7 @@ pub struct CourseDataNewProps {
   pub course_id: i64,
   pub name: String,
   pub description: String,
+  pub homeroom: bool,
   pub active: bool,
   pub api_key: String,
 }
@@ -156,6 +158,27 @@ pub struct SchoolDataNewProps {
   pub school_id: i64,
   pub name: String,
   pub description: String,
+  pub active: bool,
+  pub api_key: String,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SchoolDurationNewProps {
+  pub school_id: i64,
+  pub day: i64,
+  pub minute_start: i64,
+  pub minute_end: i64,
+  pub api_key: String,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SchoolDurationDataNewProps {
+  pub school_duration_id: i64,
+  pub day: i64,
+  pub minute_start: i64,
+  pub minute_end: i64,
   pub active: bool,
   pub api_key: String,
 }
@@ -287,6 +310,33 @@ pub struct SchoolDataViewProps {
   pub only_recent: bool,
   pub api_key: String,
 }
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SchoolDurationViewProps {
+  pub school_duration_id: Option<Vec<i64>>,
+  pub min_creation_time: Option<i64>,
+  pub max_creation_time: Option<i64>,
+  pub creator_user_id: Option<Vec<i64>>,
+  pub school_id: Option<Vec<i64>>,
+  pub api_key: String,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SchoolDurationDataViewProps {
+  pub school_duration_data_id: Option<Vec<i64>>,
+  pub min_creation_time: Option<i64>,
+  pub max_creation_time: Option<i64>,
+  pub creator_user_id: Option<Vec<i64>>,
+  pub school_duration_id: Option<Vec<i64>>,
+  pub day: Option<Vec<i64>>,
+  pub min_minute_start: Option<i64>,
+  pub max_minute_start: Option<i64>,
+  pub min_minute_end: Option<i64>,
+  pub max_minute_end: Option<i64>,
+  pub active: Option<bool>,
+  pub api_key: String,
+}
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -311,6 +361,7 @@ pub struct CourseDataViewProps {
   pub partial_name: Option<String>,
   pub description: Option<Vec<String>>,
   pub partial_description: Option<String>,
+  pub homeroom: Option<bool>,
   pub active: Option<bool>,
   pub only_recent: bool,
   pub school_id: Option<Vec<i64>>,
