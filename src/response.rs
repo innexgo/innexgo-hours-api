@@ -128,7 +128,7 @@ pub struct Subscription {
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct SchoolDuration {
-  pub school_duration_id: String,
+  pub school_duration_id: i64,
   pub creation_time: i64,
   pub creator_user_id: i64,
   pub school: School,
@@ -137,7 +137,7 @@ pub struct SchoolDuration {
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct SchoolDurationData {
-  pub school_duration_data_id: String,
+  pub school_duration_data_id: i64,
   pub creation_time: i64,
   pub creator_user_id: i64,
   pub school_duration: SchoolDuration,
