@@ -335,6 +335,7 @@ pub struct SchoolDurationDataViewProps {
   pub min_minute_end: Option<i64>,
   pub max_minute_end: Option<i64>,
   pub active: Option<bool>,
+  pub only_recent: bool,
   pub api_key: String,
 }
 
