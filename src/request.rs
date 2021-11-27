@@ -23,28 +23,6 @@ impl TryFrom<u8> for SubscriptionKind {
 
 #[derive(Clone, Debug, Serialize, Deserialize, AsRefStr)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
-pub enum CommittmentResponseKind {
-  Present,
-  Tardy,
-  Absent,
-  Cancelled,
-}
-
-impl TryFrom<u8> for CommittmentResponseKind {
-  type Error = u8;
-  fn try_from(val: u8) -> Result<CommittmentResponseKind, u8> {
-    match val {
-      x if x == CommittmentResponseKind::Present as u8 => Ok(CommittmentResponseKind::Present),
-      x if x == CommittmentResponseKind::Tardy as u8 => Ok(CommittmentResponseKind::Tardy),
-      x if x == CommittmentResponseKind::Absent as u8 => Ok(CommittmentResponseKind::Absent),
-      x if x == CommittmentResponseKind::Cancelled as u8 => Ok(CommittmentResponseKind::Cancelled),
-      x => Err(x),
-    }
-  }
-}
-
-#[derive(Clone, Debug, Serialize, Deserialize, AsRefStr)]
-#[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum AdminshipKind {
   Admin,
   Cancel,
@@ -76,6 +54,46 @@ impl TryFrom<u8> for CourseMembershipKind {
       x if x == CourseMembershipKind::Student as u8 => Ok(CourseMembershipKind::Student),
       x if x == CourseMembershipKind::Instructor as u8 => Ok(CourseMembershipKind::Instructor),
       x if x == CourseMembershipKind::Cancel as u8 => Ok(CourseMembershipKind::Cancel),
+      x => Err(x),
+    }
+  }
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize, AsRefStr)]
+#[serde(rename_all = "SCREAMING_SNAKE_CASE")]
+pub enum EncounterKind {
+  Manual,
+  Hardware,
+}
+
+impl TryFrom<u8> for EncounterKind {
+  type Error = u8;
+  fn try_from(val: u8) -> Result<EncounterKind, u8> {
+    match val {
+      x if x == EncounterKind::Manual as u8 => Ok(EncounterKind::Manual),
+      x if x == EncounterKind::Hardware as u8 => Ok(EncounterKind::Hardware),
+      x => Err(x),
+    }
+  }
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize, AsRefStr)]
+#[serde(rename_all = "SCREAMING_SNAKE_CASE")]
+pub enum IrregularityKind {
+  Absent,
+  Tardy,
+  LeaveNoreturn,
+  LeaveReturn
+}
+
+impl TryFrom<u8> for IrregularityKind {
+  type Error = u8;
+  fn try_from(val: u8) -> Result<IrregularityKind, u8> {
+    match val {
+      x if x == IrregularityKind::Absent as u8 => Ok(IrregularityKind::Absent),
+      x if x == IrregularityKind::Tardy as u8 => Ok(IrregularityKind::Tardy),
+      x if x == IrregularityKind::LeaveNoreturn as u8 => Ok(IrregularityKind::LeaveNoreturn),
+      x if x == IrregularityKind::LeaveReturn as u8 => Ok(IrregularityKind::LeaveReturn),
       x => Err(x),
     }
   }
@@ -158,6 +176,27 @@ pub struct SchoolDataNewProps {
   pub school_id: i64,
   pub name: String,
   pub description: String,
+  pub active: bool,
+  pub api_key: String,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct LocationNewProps {
+  pub name: String,
+  pub name: String,
+  pub address: String,
+  pub phone: String,
+  pub api_key: String,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct LocationDataNewProps {
+  pub location_id: i64,
+  pub name: String,
+  pub address: String,
+  pub phone: String,
   pub active: bool,
   pub api_key: String,
 }
@@ -265,9 +304,30 @@ pub struct CommittmentNewProps {
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct CommittmentResponseNewProps {
-  pub committment_id: i64,
-  pub committment_response_kind: CommittmentResponseKind,
+pub struct EncounterNewProps {
+  pub attendee_user_id: i64,
+  pub location_id: i64,
+  pub api_key: String,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct StayNewProps {
+  pub fst_time: Option<i64>,
+  pub fst_encounter_id: Option<i64>,
+  pub snd_time: Option<i64>,
+  pub snd_encounter_id: Option<i64>,
+  pub api_key: String,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct StayDataNewProps {
+  pub fst_time: Option<i64>,
+  pub fst_encounter_id: Option<i64>,
+  pub snd_time: Option<i64>,
+  pub snd_encounter_id: Option<i64>,
+  pub active: String,
   pub api_key: String,
 }
 
@@ -558,23 +618,7 @@ pub struct CommittmentViewProps {
   pub max_end_time: Option<i64>,
   pub responded: Option<bool>,
   pub from_request_response: Option<bool>,
+  pub only_recent: bool,
   pub api_key: String,
 }
 
-#[derive(Clone, Debug, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct CommittmentResponseViewProps {
-  pub committment_id: Option<Vec<i64>>,
-  pub min_creation_time: Option<i64>,
-  pub max_creation_time: Option<i64>,
-  pub creator_user_id: Option<Vec<i64>>,
-  pub committment_response_kind: Option<Vec<CommittmentResponseKind>>,
-  pub attendee_user_id: Option<Vec<i64>>,
-  pub course_id: Option<Vec<i64>>,
-  pub session_id: Option<Vec<i64>>,
-  pub min_start_time: Option<i64>,
-  pub max_start_time: Option<i64>,
-  pub min_end_time: Option<i64>,
-  pub max_end_time: Option<i64>,
-  pub api_key: String,
-}

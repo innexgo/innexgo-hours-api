@@ -1,6 +1,5 @@
-use super::request::{
-  AdminshipKind, CommittmentResponseKind, CourseMembershipKind, SubscriptionKind,
-};
+use super::request::{AdminshipKind, CourseMembershipKind, EncounterKind, SubscriptionKind};
+use either::Either;
 use serde::{Deserialize, Serialize};
 use strum::AsRefStr;
 
@@ -57,11 +56,6 @@ pub enum InnexgoHoursError {
   CommittmentCannotCreateForOthersStudent,
   CommittmentCannotCreateHiddenStudent,
   CommittmentCannotCreateUncancellableStudent,
-
-  CommittmentResponseKindInvalid,
-  CommittmentResponseExistent,
-  CommittmentResponseUncancellable,
-  CommittmentResponseCannotCreateForOthersStudent,
 
   CourseNonexistent,
   CourseArchived,
@@ -160,7 +154,7 @@ pub struct SchoolKey {
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct SchoolKeyData  {
+pub struct SchoolKeyData {
   pub school_key_data_id: i64,
   pub creation_time: i64,
   pub creator_user_id: i64,
@@ -187,9 +181,19 @@ pub struct Location {
   pub creation_time: i64,
   pub creator_user_id: i64,
   pub school: School,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct LocationData {
+  pub location_data_id: i64,
+  pub creation_time: i64,
+  pub creator_user_id: i64,
+  pub location: Location,
   pub name: String,
-  pub description: String,
-  pub valid: bool,
+  pub address: String,
+  pub phone: String,
+  pub active: bool,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -229,7 +233,7 @@ pub struct CourseKey {
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct CourseKeyData  {
+pub struct CourseKeyData {
   pub course_key_data_id: i64,
   pub creation_time: i64,
   pub creator_user_id: i64,
@@ -301,12 +305,38 @@ pub struct Committment {
   pub creator_user_id: i64,
   pub attendee_user_id: i64,
   pub session: Session,
+  pub active: bool,
 }
+
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct CommittmentResponse {
-  pub committment: Committment,
+pub struct Encounter {
+  pub encounter_id: i64,
   pub creation_time: i64,
   pub creator_user_id: i64,
-  pub kind: CommittmentResponseKind,
+  pub location: Location,
+  pub user_id: i64,
+  pub encounter_kind: EncounterKind,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Stay {
+  pub stay_id: i64,
+  pub creation_time: i64,
+  pub creator_user_id: i64,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct StayData {
+  pub stay_data_id: i64,
+  pub creation_time: i64,
+  pub creator_user_id: i64,
+  pub stay: Stay,
+  #[serde(with = "either::serde_untagged")]
+  pub fst: Either<Encounter, i64>,
+  #[serde(with = "either::serde_untagged")]
+  pub snd: Either<Encounter, i64>,
+  pub active: bool,
 }
