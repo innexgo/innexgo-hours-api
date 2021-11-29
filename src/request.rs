@@ -304,7 +304,7 @@ pub struct CommittmentNewProps {
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct EncounterNewProps {
+pub struct EncounterNewAttendanceProps {
   pub attendee_user_id: i64,
   pub location_id: i64,
   pub api_key: String,
@@ -366,6 +366,34 @@ pub struct SchoolDataViewProps {
   pub partial_name: Option<String>,
   pub description: Option<Vec<String>>,
   pub partial_description: Option<String>,
+  pub active: Option<bool>,
+  pub only_recent: bool,
+  pub api_key: String,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct LocationViewProps {
+  pub location_id: Option<Vec<i64>>,
+  pub min_creation_time: Option<i64>,
+  pub max_creation_time: Option<i64>,
+  pub creator_user_id: Option<Vec<i64>>,
+  pub api_key: String,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct LocationDataViewProps {
+  pub location_data_id: Option<Vec<i64>>,
+  pub min_creation_time: Option<i64>,
+  pub max_creation_time: Option<i64>,
+  pub creator_user_id: Option<Vec<i64>>,
+  pub location_id: Option<Vec<i64>>,
+  pub name: Option<Vec<String>>,
+  pub partial_name: Option<String>,
+  pub address: Option<Vec<String>>,
+  pub partial_address: Option<String>,
+  pub phone: Option<Vec<String>>,
   pub active: Option<bool>,
   pub only_recent: bool,
   pub api_key: String,
@@ -606,6 +634,26 @@ pub struct SessionRequestResponseViewProps {
 #[serde(rename_all = "camelCase")]
 pub struct CommittmentViewProps {
   pub committment_id: Option<Vec<i64>>,
+  pub min_creation_time: Option<i64>,
+  pub max_creation_time: Option<i64>,
+  pub creator_user_id: Option<Vec<i64>>,
+  pub attendee_user_id: Option<Vec<i64>>,
+  pub session_id: Option<Vec<i64>>,
+  pub course_id: Option<Vec<i64>>,
+  pub min_start_time: Option<i64>,
+  pub max_start_time: Option<i64>,
+  pub min_end_time: Option<i64>,
+  pub max_end_time: Option<i64>,
+  pub responded: Option<bool>,
+  pub from_request_response: Option<bool>,
+  pub only_recent: bool,
+  pub api_key: String,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct EncounterViewProps {
+  pub encounter_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
   pub creator_user_id: Option<Vec<i64>>,
