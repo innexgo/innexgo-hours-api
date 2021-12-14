@@ -325,6 +325,7 @@ pub struct Stay {
   pub stay_id: i64,
   pub creation_time: i64,
   pub creator_user_id: i64,
+  pub attendee_user_id: i64,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
