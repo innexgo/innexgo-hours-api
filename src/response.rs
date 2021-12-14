@@ -51,11 +51,11 @@ pub enum InnexgoHoursError {
   SessionNotRelevant,
   SessionNonexistent,
 
-  CommittmentExistent,
-  CommittmentNonexistent,
-  CommittmentCannotCreateForOthersStudent,
-  CommittmentCannotCreateHiddenStudent,
-  CommittmentCannotCreateUncancellableStudent,
+  CommitmentExistent,
+  CommitmentNonexistent,
+  CommitmentCannotCreateForOthersStudent,
+  CommitmentCannotCreateHiddenStudent,
+  CommitmentCannotCreateUncancellableStudent,
 
   CourseNonexistent,
   CourseArchived,
@@ -294,12 +294,12 @@ pub struct SessionRequestResponse {
   pub creation_time: i64,
   pub creator_user_id: i64,
   pub message: String,
-  pub commitment: Option<Committment>,
+  pub commitment: Option<Commitment>,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct Committment {
+pub struct Commitment {
   pub commitment_id: i64,
   pub creation_time: i64,
   pub creator_user_id: i64,

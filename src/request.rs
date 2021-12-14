@@ -295,7 +295,7 @@ pub struct SessionRequestResponseNewProps {
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct CommittmentNewProps {
+pub struct CommitmentNewProps {
   pub attendee_user_id: i64,
   pub session_id: i64,
   pub api_key: String,
@@ -632,7 +632,7 @@ pub struct SessionRequestResponseViewProps {
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct CommittmentViewProps {
+pub struct CommitmentViewProps {
   pub commitment_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
