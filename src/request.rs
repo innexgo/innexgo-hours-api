@@ -619,7 +619,7 @@ pub struct SessionRequestResponseViewProps {
   pub message: Option<Vec<String>>,
   pub partial_message: Option<String>,
   pub accepted: Option<bool>,
-  pub committment_id: Option<Vec<i64>>,
+  pub commitment_id: Option<Vec<i64>>,
   pub attendee_user_id: Option<Vec<i64>>,
   pub course_id: Option<Vec<i64>>,
   pub min_start_time: Option<i64>,
@@ -633,7 +633,7 @@ pub struct SessionRequestResponseViewProps {
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct CommittmentViewProps {
-  pub committment_id: Option<Vec<i64>>,
+  pub commitment_id: Option<Vec<i64>>,
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
   pub creator_user_id: Option<Vec<i64>>,

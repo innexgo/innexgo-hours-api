@@ -294,13 +294,13 @@ pub struct SessionRequestResponse {
   pub creation_time: i64,
   pub creator_user_id: i64,
   pub message: String,
-  pub committment: Option<Committment>,
+  pub commitment: Option<Committment>,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Committment {
-  pub committment_id: i64,
+  pub commitment_id: i64,
   pub creation_time: i64,
   pub creator_user_id: i64,
   pub attendee_user_id: i64,
