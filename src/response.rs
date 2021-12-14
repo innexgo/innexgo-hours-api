@@ -57,6 +57,9 @@ pub enum InnexgoHoursError {
   CommitmentCannotCreateHiddenStudent,
   CommitmentCannotCreateUncancellableStudent,
 
+  EncounterNonexistent,
+  StayNonexistent,
+
   CourseNonexistent,
   CourseArchived,
 

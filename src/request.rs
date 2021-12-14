@@ -299,11 +299,12 @@ pub struct CommitmentNewProps {
   pub attendee_user_id: i64,
   pub session_id: i64,
   pub api_key: String,
+  pub active: bool,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct EncounterNewAttendanceProps {
+pub struct EncounterNewProps {
   pub attendee_user_id: i64,
   pub location_id: i64,
   pub api_key: String,
@@ -644,7 +645,7 @@ pub struct CommitmentViewProps {
   pub max_start_time: Option<i64>,
   pub min_end_time: Option<i64>,
   pub max_end_time: Option<i64>,
-  pub responded: Option<bool>,
+  pub active: Option<bool>,
   pub from_request_response: Option<bool>,
   pub only_recent: bool,
   pub api_key: String,
