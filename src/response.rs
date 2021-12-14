@@ -318,7 +318,7 @@ pub struct Encounter {
   pub creation_time: i64,
   pub creator_user_id: i64,
   pub location: Location,
-  pub user_id: i64,
+  pub attendee_user_id: i64,
   pub encounter_kind: EncounterKind,
 }
 
