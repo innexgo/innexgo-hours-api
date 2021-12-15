@@ -71,6 +71,7 @@ pub enum InnexgoHoursError {
   CourseMembershipCannotLeaveEmpty,
 
   LocationNonexistent,
+  LocationArchived,
 
   NegativeDuration,
   CannotAlterPast,

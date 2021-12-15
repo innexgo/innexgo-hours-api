@@ -110,6 +110,7 @@ pub struct SubscriptionNewProps {
 #[serde(rename_all = "camelCase")]
 pub struct CourseNewProps {
   pub school_id: i64,
+  pub location_id: i64,
   pub name: String,
   pub description: String,
   pub homeroom: bool,
@@ -120,6 +121,7 @@ pub struct CourseNewProps {
 #[serde(rename_all = "camelCase")]
 pub struct CourseDataNewProps {
   pub course_id: i64,
+  pub location_id: i64,
   pub name: String,
   pub description: String,
   pub homeroom: bool,
@@ -449,6 +451,7 @@ pub struct CourseDataViewProps {
   pub max_creation_time: Option<i64>,
   pub creator_user_id: Option<Vec<i64>>,
   pub course_id: Option<Vec<i64>>,
+  pub location_id: Option<Vec<i64>>,
   pub name: Option<Vec<String>>,
   pub partial_name: Option<String>,
   pub description: Option<Vec<String>>,
