@@ -316,6 +316,7 @@ pub struct EncounterNewProps {
 #[serde(rename_all = "camelCase")]
 pub struct StayNewProps {
   pub attendee_user_id: i64,
+  pub location_id: i64,
   pub fst_time: Option<i64>,
   pub fst_encounter_id: Option<i64>,
   pub snd_time: Option<i64>,
@@ -675,6 +676,7 @@ pub struct StayViewProps {
   pub max_creation_time: Option<i64>,
   pub creator_user_id: Option<Vec<i64>>,
   pub attendee_user_id: Option<Vec<i64>>,
+  pub location_id: Option<Vec<i64>>,
   pub api_key: String,
 }
 
@@ -695,6 +697,7 @@ pub struct StayDataViewProps {
   pub active: bool,
   pub only_recent: bool,
   pub attendee_user_id: Option<Vec<i64>>,
+  pub location_id: Option<Vec<i64>>,
   pub api_key: String,
 }
 

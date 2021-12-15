@@ -58,7 +58,10 @@ pub enum InnexgoHoursError {
   CommitmentCannotCreateUncancellableStudent,
 
   EncounterNonexistent,
+
   StayNonexistent,
+  EncounterWrongUser,
+  EncounterWrongLocation,
 
   CourseNonexistent,
   CourseArchived,
@@ -330,6 +333,7 @@ pub struct Stay {
   pub creation_time: i64,
   pub creator_user_id: i64,
   pub attendee_user_id: i64,
+  pub location: Location,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
