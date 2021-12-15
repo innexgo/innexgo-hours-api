@@ -60,8 +60,10 @@ pub enum InnexgoHoursError {
   EncounterNonexistent,
 
   StayNonexistent,
-  EncounterWrongUser,
-  EncounterWrongLocation,
+  StayProvidedNoTime,
+  StayProvidedDoubleTime,
+  StayEncounterWrongUser,
+  StayEncounterWrongLocation,
 
   CourseNonexistent,
   CourseArchived,
