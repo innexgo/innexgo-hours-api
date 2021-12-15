@@ -327,11 +327,12 @@ pub struct StayNewProps {
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct StayDataNewProps {
+  pub stay_id: i64,
   pub fst_time: Option<i64>,
   pub fst_encounter_id: Option<i64>,
   pub snd_time: Option<i64>,
   pub snd_encounter_id: Option<i64>,
-  pub active: String,
+  pub active: bool,
   pub api_key: String,
 }
 
