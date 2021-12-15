@@ -661,8 +661,6 @@ pub struct EncounterViewProps {
   pub creator_user_id: Option<Vec<i64>>,
   pub attendee_user_id: Option<Vec<i64>>,
   pub location_id: Option<Vec<i64>>,
-  pub min_time: Option<i64>,
-  pub max_time: Option<i64>,
   pub api_key: String,
 }
 
@@ -685,14 +683,15 @@ pub struct StayDataViewProps {
   pub max_creation_time: Option<i64>,
   pub creator_user_id: Option<Vec<i64>>,
   pub stay_id: Option<Vec<i64>>,
-  pub attendee_user_id: Option<Vec<i64>>,
-  pub session_id: Option<Vec<i64>>,
-  pub course_id: Option<Vec<i64>>,
+  pub fst_encounter_id: Option<Vec<i64>>,
+  pub snd_encounter_id: Option<Vec<i64>>,
   pub min_start_time: Option<i64>,
   pub max_start_time: Option<i64>,
   pub min_end_time: Option<i64>,
   pub max_end_time: Option<i64>,
+  pub active: bool,
   pub only_recent: bool,
+  pub attendee_user_id: Option<Vec<i64>>,
   pub api_key: String,
 }
 
