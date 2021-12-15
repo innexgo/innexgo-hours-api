@@ -379,6 +379,7 @@ pub struct LocationViewProps {
   pub min_creation_time: Option<i64>,
   pub max_creation_time: Option<i64>,
   pub creator_user_id: Option<Vec<i64>>,
+  pub school_id: Option<Vec<i64>>,
   pub api_key: String,
 }
 
