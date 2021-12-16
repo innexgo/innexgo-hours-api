@@ -302,7 +302,7 @@ pub struct SessionRequestResponseNewProps {
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct CommitmentNewProps {
-  pub attendee_user_id: i64,
+  pub attendee_user_ids: Vec<i64>,
   pub session_id: i64,
   pub api_key: String,
   pub active: bool,
