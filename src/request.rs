@@ -185,6 +185,7 @@ pub struct SchoolDataNewProps {
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct LocationNewProps {
+  pub school_id: i64,
   pub name: String,
   pub address: String,
   pub phone: String,
