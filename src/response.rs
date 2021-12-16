@@ -99,6 +99,16 @@ pub enum InnexgoHoursError {
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
+pub struct Subscription {
+  pub subscription_id: i64,
+  pub creation_time: i64,
+  pub creator_user_id: i64,
+  pub subscription_kind: SubscriptionKind,
+  pub max_uses: i64,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct School {
   pub school_id: i64,
   pub creator_user_id: i64,
@@ -116,16 +126,6 @@ pub struct SchoolData {
   pub name: String,
   pub description: String,
   pub active: bool,
-}
-
-#[derive(Clone, Debug, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct Subscription {
-  pub subscription_id: i64,
-  pub creation_time: i64,
-  pub creator_user_id: i64,
-  pub subscription_kind: SubscriptionKind,
-  pub max_uses: i64,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -221,6 +221,7 @@ pub struct CourseData {
   pub creation_time: i64,
   pub creator_user_id: i64,
   pub course: Course,
+  pub location: Location,
   pub name: String,
   pub description: String,
   pub homeroom: bool,
